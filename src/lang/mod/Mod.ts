@@ -24,6 +24,7 @@ export interface ModOptions {
 
 export class Mod {
   env: Env = EnvNull()
+  arities: Map<string, number> = new Map()
   outputs: Map<number, StmtOutput> = new Map()
   stmts: Array<Stmt> = []
   initialized = false
@@ -43,6 +44,11 @@ export class Mod {
 
   async executeStmts(stmts: Array<Stmt>): Promise<void> {
     await this.initialize()
+
+    for (const stmt of stmts.values()) {
+      stmt.prepare(this)
+    }
+
     const offset = this.stmts.length
     for (const [index, stmt] of stmts.entries()) {
       const output = await stmt.execute(this)

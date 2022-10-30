@@ -1,16 +1,7 @@
 be sure about the meaning of the semiring of `Order`
 
 - compare with AA's paper
-
-improve termination error report -- `span` to `Clause` first
-
-support mutual recursion within `Mod`
-
-# later
-
-example of higer order data where arguments can be function -- `Ord` in the paper
-
-- to test `compareExpWithPatten` on `Ap` -- Axiom 2 of `Order` in the paper
+- learn about three-valued logic -- for the intuition of logic with neutrality
 
 # close to cicada
 

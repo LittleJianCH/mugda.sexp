@@ -1,11 +1,11 @@
 ErrorReport: Size-decreasing principle fail
 
- 2 |
- 3 |(fn add (-> Nat Nat Nat)
- 4 |  [(x (zero)) x]
- 5 |  [(x (add1 y)) (add1 (add x (add1 y)))])
- 6 |
-
+  8 |(fn sub-to-zero (-> Nat Nat)
+  9 |  [((zero)) zero]
+ 10 |  [((add1 (zero))) zero]
+ 11 |  [((add1 (add1 x))) (sub-to-zero (my-add1 x))])
+ 12 |
+ 13 |(sub-to-zero zero)
     at DefaultScript.<anonymous> (/home/xyh/cicada-lang/mugda/lib/scripts/DefaultScript.js:57:27)
     at Generator.throw (<anonymous>)
     at rejected (/home/xyh/cicada-lang/mugda/lib/scripts/DefaultScript.js:29:65)

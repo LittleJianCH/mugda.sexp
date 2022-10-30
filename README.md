@@ -13,9 +13,24 @@ of [general recursive function](https://en.wikipedia.org/wiki/General_recursive_
 Notes about our implementation:
 
 - Use [S-expression](https://github.com/cicada-lang/sexp) as overall syntax, to expression ideas clearly.
-- Close to the paper, so that the code is easy to be reviewed with the paper.
-- Add comments about alternative ways to implement the same ideas.
-- Do not follow bad naming conventions of the paper.
+- We do not follow the bad naming conventions of the paper.
+
+## Notes
+
+### Zero arity data constructor
+
+When using zero arity data constructor, we must write them in `()`.
+For example, `zero` and `(zero)` are the same.
+
+But when using zero arity data constructor in pattern, we must write them in `()`.
+For example, we should not write `zero` but write `(zero)`,
+otherwise the interpreter can not distinguish pattern variable
+from this zero arity data constructor.
+
+### Syntax of inductive datatype definition
+
+The syntax of inductive datatype definition -- `(data)`,
+is learnt from ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-little-typer).
 
 ## Usages
 
@@ -57,7 +72,7 @@ END
 
 Install it by the following command:
 
-```
+```sh
 npm install -g @cicada-lang/mugda
 ```
 
@@ -95,23 +110,6 @@ Run a URL:
 ```sh
 mu run https://cdn.mu.cic.run/tests/basic/id.test.mu
 ```
-
-## Notes
-
-### Zero arity data constructor
-
-When using zero arity data constructor, we must write them in `()`.
-For example, `zero` and `(zero)` are the same.
-
-But when using zero arity data constructor in pattern, we must write them in `()`.
-For example, we should not write `zero` but write `(zero)`,
-otherwise the interpreter can not distinguish pattern variable
-from this zero arity data constructor.
-
-### Syntax of inductive datatype definition
-
-The syntax of inductive datatype definition -- `(data)`,
-is learnt from ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-little-typer).
 
 ## Examples
 
@@ -170,7 +168,7 @@ add
   [null () (List A)]
   [cons ([head A] [tail (List A)]) (List A)])
 
-(import "https://cdn.mu.cic.run/std/datatypes/Nat.mu" Nat zero add1)
+(import "https://cdn.mu.cic.run/std/nat/index.mu" Nat zero add1)
 
 (fn length (Pi ([A Type]) (-> (List A) Nat))
   [(A (null A)) zero]
