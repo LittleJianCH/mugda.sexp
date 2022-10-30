@@ -1,12 +1,20 @@
 export type Order = Smaller | Neutral | LargerOrNotComparable
 
-export type Smaller = "Smaller"
-export type Neutral = "Neutral"
-export type LargerOrNotComparable = "LargerOrNotComparable"
+export type Smaller = {
+  kind: "Smaller"
+}
+export type Neutral = {
+  kind: "Neutral"
+}
+export type LargerOrNotComparable = {
+  kind: "LargerOrNotComparable"
+}
 
-export const Smaller = "Smaller"
-export const Neutral = "Neutral"
-export const LargerOrNotComparable = "LargerOrNotComparable"
+const Smaller: Smaller = { kind: "Smaller" }
+const Neutral: Neutral = { kind: "Neutral" }
+const LargerOrNotComparable: LargerOrNotComparable = {
+  kind: "LargerOrNotComparable",
+}
 
 export function equalOrder(x: Order, y: Order): boolean {
   return x === y
