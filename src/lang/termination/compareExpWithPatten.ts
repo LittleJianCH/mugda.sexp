@@ -69,7 +69,7 @@ function compareVarWithPatten(mod: Mod, name: string, pattern: Pattern): Order {
 
     case "Ctor": {
       return Orders.mulOrder(
-        Orders.Smaller,
+        Orders.Difference(-1),
         Orders.maxOrders(
           pattern.args.map((arg) => compareVarWithPatten(mod, name, arg)),
         ),

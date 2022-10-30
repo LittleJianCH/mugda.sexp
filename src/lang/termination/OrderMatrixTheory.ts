@@ -11,11 +11,11 @@ export class OrderMatrixTheory extends MatrixTheory<Order> {
       add: Orders.addOrder,
       mul: Orders.mulOrder,
       zero: Orders.LargerOrNotComparable,
-      one: Orders.Neutral,
+      one: Orders.Difference(0),
     })
   }
 
   isDecreasing(matrix: OrderMatrix): boolean {
-    return this.diagonal(matrix).some((element) => element === Orders.Smaller)
+    return this.diagonal(matrix).some(Orders.checkSmaller)
   }
 }
